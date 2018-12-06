@@ -126,7 +126,7 @@ podTemplate(
 	sh "oc set image dc/${destApp} ${destApp}=docker-registry.default.svc:5000/${GUID}-tasks-dev/tasks:${prodTag} -n ${GUID}-tasks-prod"
 
 	// Set VERSION environment variable		  
-        sh "oc set env dc/${destApp} VERSION=\"${prodTag} (${destApp})\" -n ${GUID}-tasks-prod"
+        //sh "oc set env dc/${destApp} VERSION=\"${prodTag} (${destApp})\" -n ${GUID}-tasks-prod"
 
 	// Update the Config Map which contains the users for the Tasks application
         sh "oc delete configmap ${destApp}-config -n ${GUID}-tasks-prod --ignore-not-found=true"	
